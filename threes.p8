@@ -1,103 +1,6 @@
 pico-8 cartridge // http://www.pico-8.com
 version 32
 __lua__
--- if you enjoyed this, please
--- consider downloading the
--- original game and giving it
--- a positive review
-
-
--- ˇˇ links ˇˇ
-
--- apple
--- paid: https://apps.apple.com/us/app/threes/id779157948
--- free: https://apps.apple.com/us/app/threes-freeplay/id976851174
--- arcade: https://apps.apple.com/us/app/threes/id1551561086
-
--- android
--- paid: https://play.google.com/store/apps/details?id=vo.threes.exclaim
--- free: https://play.google.com/store/apps/details?id=vo.threes.free
-
--- xbox one
--- paid: https://www.microsoft.com/en-us/store/p/threes/bs8k8pj8sbfl
-
--- amazon
--- paid: http://www.amazon.com/sirvo-llc-threes/dp/b00jfkeqbk/
-
--- windows phone
--- free: https://www.windowsphone.com/s?appid=0a08e161-ce38-4b13-8507-79794d9e7af4
-
--- browser
--- free: http://play.threesgame.com/
-
-
--- ˇˇ credits ˇˇ
-
--- original game by:
--- ~ asher volmer
--- ~ greg wohlwend
-
--- original music by:
--- ~ jimmy hinson
-
--- thanks to the work done by
--- kamikaze28 and all other
--- contributing members of the 
--- toucharcade forums for 
--- working out the underlying 
--- logic of the original game.
-
--- creating this version would
--- have been nearly impossible 
--- otherwise.
-
--- kamikaze28's threes guide:
--- https://toucharcade.com/community/threads/threes-by-sirvo-llc.218248/page-27#post-3140044
-
-
--- ˇˇ   ˇˇ  
-
--- this is a fan made demake 
--- that was created as a fun
--- learning exercise, and as a
--- tribute to the original game.
-
--- this was not made for profit
--- or with the intention to 
--- encroach on, or detract from, 
--- the original game in any way.
-
--- i am more than happy to take
--- this down entirely if any
--- of the game's creators wish.
-
--- to any other developers,
--- please do not use this code 
--- in any way that diminishes
--- the work done by the original
--- creators.
-
--- this was made over the course
--- of just a couple weeks, which
--- only goes to show how much it
--- was built on the work of
--- other people.
-
--- i highly recommend reading
--- this post by asher and greg,
--- which gives an incredible
--- peek behind the scenes of 
--- the developement of three's.
-
--- https://asherv.com/threes/threemails/
-
--- threes took 14 months to
--- develop, and required an
--- intense amount of work,
--- investment, and vulnerability
--- compared to the creation of
--- this version.
--->8
 -- initializegame()
 
 -- set values for the board and
@@ -146,6 +49,8 @@ function initializegame()
 	move = false
 	
 end
+-->8
+
 -->8
 -- _init() game loop
 

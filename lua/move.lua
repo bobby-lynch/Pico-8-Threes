@@ -116,13 +116,11 @@ function completemove()
 
 				if (direction == "⬆️" or direction == "⬇️") then
 
-					--moved[i] = i
 					moved[j] = j
 
 				elseif (direction == "⬅️" or direction == "➡️") then
 
 					moved[i] = i
-					--moved[j] = j
 
 				end
 

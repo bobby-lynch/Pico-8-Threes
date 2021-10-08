@@ -73,6 +73,7 @@ function handleinput()
 			end
 
 			click = false
+
 			prevdirection = direction
 			direction = "none"
 
@@ -86,7 +87,7 @@ end
 -- the direction of the mouse
 function setdirection()
 
-	prevdirection = direction
+	--prevdirection = direction
 
 	if (angle >= 0.125 and angle < 0.375) then
 

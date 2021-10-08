@@ -81,8 +81,10 @@ function resetgame()
 	-- the rows or columns that had
 	-- cards that moved
 	moved = {0,0,0,0}
+    -- previous moved rows/columns
+    -- just for testing
     prevmoved = {0,0,0,0}
-    
+
 	move = false
 
 end

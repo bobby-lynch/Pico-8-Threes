@@ -28,12 +28,15 @@ function _update()
 
 			repeat
 
+				-- select a random space in a
+				-- row/column where a move has taken place
 				repeat
 
 					coord = moved[((rnd(4)\1)+1)]
 
 				until coord ~= 0
 
+				-- set x,y coordinates based on direction
 				if (prevdirection == "⬆️") then
 
 					x = 4
@@ -58,14 +61,11 @@ function _update()
 
 			until board[x][y].nextface == 0
 
-
+			-- just for testing
 			xprint = x
 			yprint = y
 
 			move = false
-			--direction = "none"
-
-
 
 		else
 
@@ -80,24 +80,27 @@ function _update()
 
 		end
 
+		-- place card on board
 		board[x][y].face = nextcard
 		board[x][y].nextface = nextcard
 		cardtotal += 1
 
+		-- set the previous moved rows/columns
 		for i=1,4 do
 
 			prevmoved[i] = moved[i]
-			--moved[i] = 0
 
 		end
 
 	end
+
+	-- reset moved rows/columns
 	for i=1,4 do
 
-		--prevmoved[i] = moved[i]
 		moved[i] = 0
 
 	end
+
 end
 
 -- clears screen and draws the
@@ -126,34 +129,52 @@ function _draw()
 
 		end
 
-		if click then
+		--displayinfo()
 
-			print(direction.." "..slide.x.." "..slide.y.." "..tostr(slide.current).." "..change.x.." "..change.y,4,120,12)
-
-		end
-
-		print(direction,112,4,12)
-		print(prevdirection,112,12,12)
-		print(angle,112,20,12)
+		-- print cursor to screen
 		print("◆",mouse.x,mouse.y,11)
+end
 
-		for i=1,#deck do
+-- display game data on the screen for testing
+function displayinfo()
 
-			print(deck[i],1,(i*8)-7,0)
+	-- when the mouse is being clicked, print the direction of the swipe,
+	-- the change in x,y for the swiped cards, and the change in x,y of
+	-- the current mouse position from where it was clicked
+	if click then
 
-		end
+		print(direction.." "..slide.x.." "..slide.y.." "..change.x.." "..change.y,4,120,12)
 
-		print(#moved,9,1,14)
-		print(coord,17,1,12)
-		print(xprint,25,1,14)
-		print(yprint,33,1,12)
-		print(board[x][y].face,41,1,14)
+	end
 
-		for i=1,#moved do
+	-- print the current direction, previous direction, and the
+	-- relative angle of the cursor from where it was clicked
+	print(direction,112,4,12)
+	print(prevdirection,112,12,12)
+	print(angle,112,20,12)
 
-			print(moved[i],9,(i*8),0)
-			print(prevmoved[i],17,(i*8),0)
+	-- print the face values of the cards currently in the deck
+	for i=1,#deck do
 
-		end
+		print(deck[i],1,(i*8)-7,0)
+
+	end
+
+	-- print the row/column of the next card to be placed,
+	-- the x,y value of its position on the board, and the
+	-- face value of the card already at that position
+	print(coord,17,1,12)
+	print(xprint,25,1,14)
+	print(yprint,33,1,12)
+	print(board[x][y].face,41,1,14)
+
+	-- print the rows/columns that contained a card that moved
+	-- and the previous rows/columns
+	for i=1,#moved do
+
+		print(moved[i],9,(i*8),0)
+		print(prevmoved[i],17,(i*8),0)
+
+	end
 
 end

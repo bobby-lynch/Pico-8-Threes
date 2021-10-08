@@ -99,6 +99,72 @@ function checkmoves()
 
 end
 
+-- move cards on the board if they
+-- can be moved,
+function completemove()
+
+	-- loop through spaces on board
+	for i=1,4 do
+
+		for j=1,4 do
+
+			if board[i][j].move == 1 then
+
+				-- indicates at least one card
+				-- is being moved
+				move = true
+
+				if (direction == "⬆️" or direction == "⬇️") then
+
+					--moved[i] = i
+					moved[j] = j
+
+				elseif (direction == "⬅️" or direction == "➡️") then
+
+					moved[i] = i
+					--moved[j] = j
+
+				end
+
+			end
+
+			-- move card to new space on board
+			-- and reset move
+			board[i][j].face = board[i][j].nextface
+			board[i][j].move = 0
+
+		end
+
+	end
+
+	-- if at least one card is
+	-- moved, add a new card to
+	-- the queue
+	if move then
+
+		queue += 1
+
+	end
+
+end
+
+-- reset the move value for all spaces
+-- on the board
+function resetmove()
+
+	for i=1,4 do
+
+		for j=1,4 do
+
+			board[i][j].move = 0
+			board[i][j].nextface = board[i][j].face
+
+		end
+
+	end
+
+end
+
 -- set the distance each card
 -- slides during a swipe based
 -- on the direction and distance
@@ -174,72 +240,6 @@ function setslide()
 		else
 
 			slide.x = change.x
-
-		end
-
-	end
-
-end
-
--- move cards on the board if they
--- can be moved,
-function completemove()
-
-	-- loop through spaces on board
-	for i=1,4 do
-
-		for j=1,4 do
-
-			if board[i][j].move == 1 then
-
-				-- indicates at least one card
-				-- is being moved
-				move = true
-
-				if (direction == "⬆️" or direction == "⬇️") then
-
-					del(moved,i)
-					add(moved,i)
-
-				elseif (direction == "⬅️" or direction == "➡️") then
-
-					del(moved,j)
-					add(moved,j)
-
-				end
-
-			end
-
-			-- move card to new space on board
-			-- and reset move
-			board[i][j].face = board[i][j].nextface
-			board[i][j].move = 0
-
-		end
-
-	end
-
-	-- if at least one card is
-	-- moved, add a new card to
-	-- the queue
-	if move then
-
-		queue += 1
-
-	end
-
-end
-
--- reset the move value for all spaces
--- on the board
-function resetmove()
-
-	for i=1,4 do
-
-		for j=1,4 do
-
-			board[i][j].move = 0
-			board[i][j].nextface = board[i][j].face
 
 		end
 

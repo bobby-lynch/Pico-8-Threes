@@ -73,6 +73,7 @@ function handleinput()
 			end
 
 			click = false
+			prevdirection = direction
 			direction = "none"
 
 		end

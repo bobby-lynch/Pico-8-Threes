@@ -19,6 +19,7 @@ function initialize()
 	angle = 0
 
 	direction = "none"
+    prevdirection = direction
 
 	-- x,y coordinates of sprites
 	-- indexed by face value
@@ -79,8 +80,9 @@ function resetgame()
 
 	-- the rows or columns that had
 	-- cards that moved
-	moved = {}
-
+	moved = {0,0,0,0}
+    prevmoved = {0,0,0,0}
+    
 	move = false
 
 end

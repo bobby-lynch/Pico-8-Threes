@@ -14,6 +14,8 @@ function _update()
 
 	setslide()
 
+	--local x = 0
+	--local y = 0
 	-- select a card from the deck if ready
 	if (queue > 0) then
 
@@ -24,36 +26,46 @@ function _update()
 
 		if (move == true) then
 
-			if (direction == "⬆️") then
+			repeat
 
-				x = 4
-				y = moved[(rnd(#moved)\1)+1]
+				repeat
 
-			elseif (direction == "⬅️") then
+					coord = moved[((rnd(4)\1)+1)]
 
-				x = moved[(rnd(#moved)\1)+1]
-				y = 4
+				until coord ~= 0
 
-			elseif (direction == "⬇️") then
+				if (prevdirection == "⬆️") then
 
-				x = 1
-				y = moved[(rnd(#moved)\1)+1]
+					x = 4
+					y = coord
 
-			elseif (direction == "➡️") then
+				elseif (prevdirection == "⬅️") then
 
-				x = moved[(rnd(#moved)\1)+1]
-				y = 1
+					x = coord
+					y = 4
 
-			end
+				elseif (prevdirection == "⬇️") then
+
+					x = 1
+					y = coord
+
+				elseif (prevdirection == "➡️") then
+
+					x = coord
+					y = 1
+
+				end
+
+			until board[x][y].nextface == 0
+
+
+			xprint = x
+			yprint = y
 
 			move = false
-			direction = "none"
+			--direction = "none"
 
-			for i=1,4 do
 
-				deli(moved,i)
-
-			end
 
 		else
 
@@ -72,8 +84,20 @@ function _update()
 		board[x][y].nextface = nextcard
 		cardtotal += 1
 
-	end
+		for i=1,4 do
 
+			prevmoved[i] = moved[i]
+			--moved[i] = 0
+
+		end
+
+	end
+	for i=1,4 do
+
+		--prevmoved[i] = moved[i]
+		moved[i] = 0
+
+	end
 end
 
 -- clears screen and draws the
@@ -109,7 +133,8 @@ function _draw()
 		end
 
 		print(direction,112,4,12)
-		print(angle,112,12,12)
+		print(prevdirection,112,12,12)
+		print(angle,112,20,12)
 		print("◆",mouse.x,mouse.y,11)
 
 		for i=1,#deck do
@@ -118,11 +143,16 @@ function _draw()
 
 		end
 
-		print(#moved,9,1,0)
+		print(#moved,9,1,14)
+		print(coord,17,1,12)
+		print(xprint,25,1,14)
+		print(yprint,33,1,12)
+		print(board[x][y].face,41,1,14)
 
-		for i=1,#moved+1 do
+		for i=1,#moved do
 
 			print(moved[i],9,(i*8),0)
+			print(prevmoved[i],17,(i*8),0)
 
 		end
 

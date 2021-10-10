@@ -31,3 +31,109 @@ function drawcard()
  deck[#deck+1] = nil
 
 end
+
+-- get cards from bonus deck
+-- and return their face values
+function drawbonuscard()
+
+end
+
+-- place top card from the deck
+-- onto the board
+function placecard()
+
+	-- check if cards need to be
+	-- placed
+	if (queue > 0) then
+
+		nextcard = topcard[1]
+		drawcard()
+
+		queue -= 1
+
+		-- get random coordinates for
+		-- an empty space on the board
+		repeat
+
+			-- get coordinates in a row/column that
+			-- moved if there was a move
+			if (move == true) then
+
+				getcoords()
+
+				-- just for testing
+				xprint = x
+				yprint = y
+
+				move = false
+
+			-- otherwise get random coordinates
+			-- for any empty space on the board
+			else
+
+				x=(rnd(4)\1)+1
+				y=(rnd(4)\1)+1
+
+			end
+
+		until board[x][y].face == 0
+
+		-- place card on board
+		board[x][y].face = nextcard
+		board[x][y].nextface = nextcard
+		cardtotal += 1
+
+		-- set the previous moved rows/columns
+		for i=1,4 do
+
+			prevmoved[i] = moved[i]
+
+		end
+
+	end
+
+	-- reset moved rows/columns
+	for i=1,4 do
+
+		moved[i] = 0
+
+	end
+
+end
+
+-- get coordinates for a space on the board
+-- in a row/column that moved
+function getcoords()
+
+	-- select a random space in a
+	-- row/column where a move has taken place
+	repeat
+
+		coord = moved[((rnd(4)\1)+1)]
+
+	until coord ~= 0
+
+	-- set x,y coordinates based on direction
+	if (prevdirection == "⬆️") then
+
+		x = 4
+		y = coord
+
+	elseif (prevdirection == "⬅️") then
+
+		x = coord
+		y = 4
+
+	elseif (prevdirection == "⬇️") then
+
+		x = 1
+		y = coord
+
+	elseif (prevdirection == "➡️") then
+
+		x = coord
+		y = 1
+
+	end
+
+end

@@ -35,6 +35,10 @@ function initialize()
 	[12244]={x=56,y=48}
     }
 
+    position = {
+        [1]={x=33,y=32},[2]={x=48,y=48},[3]={x=63,y=64},[4]={x=78,y=80}
+    }
+
     resetgame()
 
 end

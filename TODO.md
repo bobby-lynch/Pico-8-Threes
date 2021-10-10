@@ -16,4 +16,4 @@
 - [ ] Create tutorial
 
 ### Bugs
-- [ ] Cards spawning on top of other cards
+- [x] Cards spawning on top of other cards

@@ -17,89 +17,7 @@ function _update()
 	--local x = 0
 	--local y = 0
 	-- select a card from the deck if ready
-	if (queue > 0) then
-
-		nextcard = topcard[1]
-		drawcard()
-
-		queue -= 1
-
-		if (move == true) then
-
-			repeat
-
-				-- select a random space in a
-				-- row/column where a move has taken place
-				repeat
-
-					coord = moved[((rnd(4)\1)+1)]
-
-				until coord ~= 0
-
-				-- set x,y coordinates based on direction
-				if (prevdirection == "⬆️") then
-
-					x = 4
-					y = coord
-
-				elseif (prevdirection == "⬅️") then
-
-					x = coord
-					y = 4
-
-				elseif (prevdirection == "⬇️") then
-
-					x = 1
-					y = coord
-
-				elseif (prevdirection == "➡️") then
-
-					x = coord
-					y = 1
-
-				end
-
-			until board[x][y].nextface == 0
-
-			-- just for testing
-			xprint = x
-			yprint = y
-
-			move = false
-
-		else
-
-			-- get random coordinates for
-			-- an empty space on the board
-			repeat
-
-				x=(rnd(4)\1)+1
-				y=(rnd(4)\1)+1
-
-			until board[x][y].face == 0
-
-		end
-
-		-- place card on board
-		board[x][y].face = nextcard
-		board[x][y].nextface = nextcard
-		cardtotal += 1
-
-		-- set the previous moved rows/columns
-		for i=1,4 do
-
-			prevmoved[i] = moved[i]
-
-		end
-
-	end
-
-	-- reset moved rows/columns
-	for i=1,4 do
-
-		moved[i] = 0
-
-	end
+	placecard()
 
 end
 
@@ -109,9 +27,10 @@ function _draw()
 
 		cls()
 		map(0,0,0,0,128,32)
-
+		val = 12
 		-- display top card
 		sspr(sprite[topcard[1]].x,sprite[topcard[1]].y,16,16,56,8)
+		--sspr(sprite[val].x+1,sprite[val].y+64,16,16,57,8)
 
 		-- draws sprites to screen for
 		-- each card position in board
@@ -120,8 +39,8 @@ function _draw()
 			for j=1,4 do
 
 				if (board[i][j].face ~= 0) then
-
-					sspr(sprite[board[i][j].face].x,sprite[board[i][j].face].y,16,16,(16*(j-1))+32+(board[i][j].move*slide.x\1),(16*(i-1))+32+(board[i][j].move*slide.y\1))
+					--sspr(sprite[board[i][j].face].x,sprite[board[i][j].face].y,16,16,(16*(j-1))+32+(board[i][j].move*slide.x\1),(16*(i-1))+32+(board[i][j].move*slide.y\1))
+					sspr(sprite[board[i][j].face].x,sprite[board[i][j].face].y,16,16,position[j].x+(board[i][j].move*slide.x\1),position[i].y+(board[i][j].move*slide.y\1))
 
 				end
 
@@ -177,4 +96,6 @@ function displayinfo()
 
 	end
 
+	--rect(63,0,64,8,8)
+	--rect(63,63,64,64,8)
 end

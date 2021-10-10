@@ -191,9 +191,9 @@ function setslide()
 
 		slide.y = 0
 
-		if (change.x <= -15) then
+		if (change.x <= -14) then
 
-			slide.x = -15
+			slide.x = -14
 
 		elseif (change.x >= 0) then
 
@@ -227,9 +227,9 @@ function setslide()
 
 		slide.y = 0
 
-		if (change.x >= 15) then
+		if (change.x >= 14) then
 
-			slide.x = 15
+			slide.x = 14
 
 		elseif (change.x <= 0) then
 

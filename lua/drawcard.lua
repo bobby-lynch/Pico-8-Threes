@@ -36,6 +36,21 @@ end
 -- and return their face values
 function drawbonuscard()
 
+	topcard[1] = bonusdeck[1]
+
+	if #bonusdeck == 2 then
+
+		add(topcard,bonusdeck[2])
+
+	end
+
+	if #bonusdeck >= 3 then
+
+		add(topcard,bonusdeck[(rnd(#bonusdeck - 2)\1) + 1])
+		add(topcard,bonusdeck[#bonusdeck])
+
+	end
+
 end
 
 -- place top card from the deck
@@ -46,8 +61,26 @@ function placecard()
 	-- placed
 	if (queue > 0) then
 
-		nextcard = topcard[1]
-		drawcard()
+		nextcard = topcard[(rnd(#topcard)\1)+1]
+
+		-- reset size of topcard list
+		while #topcard > 1 do
+
+			deli(topcard, #topcard)
+
+		end
+
+		--randnum = (rnd(21)\1)
+		--if (highestcard >= 6 and randnum == 0) then
+		if (highestcard >= 6 and (rnd(21)\1) == 0) then
+
+			drawbonuscard()
+
+		else
+
+			drawcard()
+
+		end
 
 		queue -= 1
 
@@ -89,6 +122,10 @@ function placecard()
 			prevmoved[i] = moved[i]
 
 		end
+
+		-- set the value of highest card after
+		-- all cards are placed and moved
+		sethighcard()
 
 	end
 
@@ -133,6 +170,26 @@ function getcoords()
 
 		x = coord
 		y = 1
+
+	end
+
+end
+
+-- set the value of the highest card on the board
+function sethighcard()
+
+	for i=1,4 do
+
+		for j=1,4 do
+
+			if ((board[i][j].face / 8) > highestcard) then
+
+				highestcard = (board[i][j].face / 8)
+				add(bonusdeck, highestcard)
+
+			end
+
+		end
 
 	end
 

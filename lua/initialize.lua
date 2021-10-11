@@ -62,10 +62,15 @@ function resetgame()
 
 	end
 
-	-- initialize set of cards and
-	-- empty deck
+	-- initialize set of cards, bonus deck,
+	-- and empty deck
 	cards = {1,1,1,1,2,2,2,2,3,3,3,3}
 	deck = {}
+    bonusdeck = {}
+
+    -- highest card divided by 8
+    highestcard = 3
+    --randnum = 21
 
 	-- face value of card on top of deck
 	topcard = {0}
@@ -78,7 +83,7 @@ function resetgame()
 	cardtotal = 0
 
 	-- number of cards to be drawn and placed on the board
-	queue = 9
+	queue = 10
 
 	slide = {x=0,y=0}
 

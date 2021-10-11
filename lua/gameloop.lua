@@ -14,9 +14,6 @@ function _update()
 
 	setslide()
 
-	--local x = 0
-	--local y = 0
-	-- select a card from the deck if ready
 	placecard()
 
 end
@@ -27,10 +24,9 @@ function _draw()
 
 		cls()
 		map(0,0,0,0,128,32)
-		val = 12
+
 		-- display top card
 		sspr(sprite[topcard[1]].x,sprite[topcard[1]].y,16,16,56,8)
-		--sspr(sprite[val].x+1,sprite[val].y+64,16,16,57,8)
 
 		-- draws sprites to screen for
 		-- each card position in board
@@ -52,6 +48,7 @@ function _draw()
 
 		-- print cursor to screen
 		print("◆",mouse.x,mouse.y,11)
+
 end
 
 -- display game data on the screen for testing
@@ -71,6 +68,9 @@ function displayinfo()
 	print(direction,112,4,12)
 	print(prevdirection,112,12,12)
 	print(angle,112,20,12)
+	print(highestcard,112,28,12)
+	print(#topcard,112,36,12)
+	--print(randnum,112,44,12)
 
 	-- print the face values of the cards currently in the deck
 	for i=1,#deck do
@@ -93,6 +93,18 @@ function displayinfo()
 
 		print(moved[i],9,(i*8),0)
 		print(prevmoved[i],17,(i*8),0)
+
+	end
+
+	for i=1,#topcard do
+
+		print(topcard[i],25,(i*8),0)
+
+	end
+
+	for i=1,#bonusdeck do
+
+		print(bonusdeck[i],33,(i*8),0)
 
 	end
 

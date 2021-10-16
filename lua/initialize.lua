@@ -47,8 +47,10 @@ end
 -- cards to their default values
 function resetgame()
 
-		-- initialize board positions
- board = {}
+    playmusic()
+
+	-- initialize board positions
+    board = {}
 
 	for i=1,4 do
 

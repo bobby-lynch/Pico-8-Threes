@@ -140,6 +140,7 @@ function completemove()
 	-- the queue
 	if move then
 
+		playsfx()
 		queue += 1
 
 	end

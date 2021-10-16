@@ -1,7 +1,7 @@
 
 -- removes card from deck and
 -- returns its face value
-function drawcard()
+function pullcard()
 
 	-- if deck is empty, reset it
 	if(#deck==0) then
@@ -34,7 +34,7 @@ end
 
 -- get cards from bonus deck
 -- and return their face values
-function drawbonuscard()
+function pullbonuscard()
 
 	topcard[1] = bonusdeck[1]
 
@@ -74,11 +74,11 @@ function placecard()
 		--if (highestcard >= 6 and randnum == 0) then
 		if (highestcard >= 6 and (rnd(21)\1) == 0) then
 
-			drawbonuscard()
+			pullbonuscard()
 
 		else
 
-			drawcard()
+			pullcard()
 
 		end
 

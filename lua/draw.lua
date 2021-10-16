@@ -3,9 +3,30 @@
 -- from a subset of the bonus deck
 function drawpreview()
 
-	-- display top card
-	sspr(sprite[topcard[1]].x,sprite[topcard[1]].y,16,16,56,8)
+    if #topcard == 1 then
 
+        -- draw card border
+        sspr(72,48,16,16,56,8)
+        -- draw card
+    	sspr(sprite[topcard[1]].x,sprite[topcard[1]].y,16,16,56,8)
+
+    elseif #topcard == 2 then
+
+        sspr(72,48,16,16,47,8)
+        sspr(sprite[topcard[1]].x,sprite[topcard[1]].y,16,16,47,8)
+        sspr(72,48,16,16,63,8)
+        sspr(sprite[topcard[2]].x,sprite[topcard[2]].y,16,16,63,8)
+
+    else
+        
+        sspr(72,48,16,16,40,8)
+        sspr(sprite[topcard[1]].x,sprite[topcard[1]].y,16,16,40,8)
+        sspr(72,48,16,16,56,8)
+        sspr(sprite[topcard[2]].x,sprite[topcard[2]].y,16,16,56,8)
+        sspr(72,48,16,16,72,8)
+        sspr(sprite[topcard[3]].x,sprite[topcard[3]].y,16,16,72,8)
+
+    end
 
 end
 

@@ -28,7 +28,7 @@ function _draw()
 		drawpreview()
 
 		drawcards()
-		
+
 		--displayinfo()
 
 		-- print cursor to screen

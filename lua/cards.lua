@@ -46,7 +46,7 @@ function pullbonuscard()
 
 	if #bonusdeck >= 3 then
 
-		add(topcard,bonusdeck[(rnd(#bonusdeck - 2)\1) + 1])
+		add(topcard,bonusdeck[(rnd(#bonusdeck - 2)\1) + 2])
 		add(topcard,bonusdeck[#bonusdeck])
 
 	end

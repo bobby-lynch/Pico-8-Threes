@@ -7,7 +7,7 @@ end
 
 function playmusic()
 
-    music(0)
+    music(0,0,3)
 
 end
 

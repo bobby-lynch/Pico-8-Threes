@@ -1,14 +1,14 @@
 # To Do
 
 ### Gameplay
-- [ ] Implement bonus cards
+- [x] Implement bonus cards
 - [ ] End game when no moves are left
 - [ ] Add scoring system
 - [ ] Animate cards swiping in
 
 ### Audio
 - [ ] Add music
-- [ ] Add sound effects
+- [x] Add sound effects
 
 ### Other
 - [ ] Add menus

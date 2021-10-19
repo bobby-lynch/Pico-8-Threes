@@ -10,6 +10,8 @@ function initialize()
 
 	cls()
 
+    playmusic()
+
 	pos = {x=0,y=0}
 
 	change = pos
@@ -46,8 +48,6 @@ end
 -- set values for the board and
 -- cards to their default values
 function resetgame()
-
-    playmusic()
 
 	-- initialize board positions
     board = {}

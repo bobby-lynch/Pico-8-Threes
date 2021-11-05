@@ -3,6 +3,9 @@
 --and reset the game's values
 function initialize()
 
+    cartdata("blynch_threes")
+
+    -- enable mouse
     poke(0x5f2d,0x01)
 
 	palt(11,true)
@@ -12,15 +15,22 @@ function initialize()
 
     playmusic()
 
+    -- mouse position
 	pos = {x=0,y=0}
 
+    -- change in mouse position
 	change = pos
 
+    -- mouse click
 	click = false
 
+    -- relative angle of current mouse position to mouse position when clicked
 	angle = 0
 
+    -- current direction
 	direction = "none"
+
+    -- previous direction
     prevdirection = direction
 
 	-- x,y coordinates of sprites

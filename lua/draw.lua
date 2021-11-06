@@ -18,7 +18,7 @@ function drawpreview()
         sspr(sprite[topcard[2]].x,sprite[topcard[2]].y,16,16,63,8)
 
     else
-        
+
         sspr(72,48,16,16,40,8)
         sspr(sprite[topcard[1]].x,sprite[topcard[1]].y,16,16,40,8)
         sspr(72,48,16,16,56,8)
@@ -55,6 +55,7 @@ end
 -- display game data on the screen for testing
 function displayinfo()
 
+    print(tobinary(5),8,112,12)
 	-- when the mouse is being clicked, print the direction of the swipe,
 	-- the change in x,y for the swiped cards, and the change in x,y of
 	-- the current mouse position from where it was clicked

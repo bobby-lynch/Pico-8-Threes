@@ -8,6 +8,7 @@ __lua__
 #include lua\input.lua
 #include lua\move.lua
 #include lua\sound.lua
+#include lua\math.lua
 
 
 __gfx__
